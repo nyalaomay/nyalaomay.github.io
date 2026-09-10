@@ -1,0 +1,132 @@
+/* ===== Color Palette =====
+   Defined once as variables, so every element pulls from
+   the same set of pinks — keeps the whole site consistent. */
+:root {
+    --color-bg: #f3e2d8;        /* page background: beige-pink base */
+    --color-card: #fdf0ea;      /* lighter panel/card background */
+    --color-pink-light: #f6d3d9; /* soft blush pink */
+    --color-pink-mid: #e6a6b8;   /* medium pink accents */
+    --color-pink-dark: #c26a86;  /* deeper pink for headers/borders */
+    --color-text: #5c3a45;       /* dark plum-brown, readable on light bg */
+}
+
+/* ===== Side-by-side layout for paired sections ===== */
+.layout-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+@media (max-width: 700px) {
+    .layout-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Base page styling. Includes a pattern for the background
+   to help it feel less flat. ===== */
+body {
+    font-family: 'Nyala', 'Bree Serif', Georgia, serif;
+    background-color: var(--color-bg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath d='M0 12 Q6 4 12 12 T24 12' fill='none' stroke='%23e6a6b8' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath d='M12 0 Q4 6 12 12 T12 24' fill='none' stroke='%23e6a6b8' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: 24px 24px, 24px 24px;
+    color: var(--color-text);
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    line-height: 1.6;
+}
+
+/* ===== Removes background pattern from name header. ===== */
+h1 {
+    display: inline-block;
+    background-color: var(--color-bg);
+    border-radius: 40px;
+}
+
+/* ===== Headings ===== */
+h1, h2 {
+    color: var(--color-pink-dark);
+}
+
+/* ===== A soft card-like look I can reuse ===== */
+.card {
+    background-color: var(--color-card);
+    border: 2px solid var(--color-pink-light);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+/* ===== Profile Image — soft, curly slanted frame, floated right ===== */
+.profile-img {
+    float: right;
+    width: 280px;
+    height: auto;
+    margin: 0 0 5px 25px;
+    border: 8px solid var(--color-pink-dark);
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    padding: 4px;
+}
+
+/* ===== Table Styling ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid var(--color-pink-mid);
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: var(--color-pink-light);
+}
+td ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* ============================================================
+   LITTLE PRINCE PAGE (Assignment 2)
+   Scoped to .page so it does not affect my hw1 pages.
+   ============================================================ */
+
+/* White book-style panel, narrow so text wraps like the sample */
+.page {
+    width: 460px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 24px;
+    border: 2px solid var(--color-pink-light);
+    border-radius: 16px;
+}
+
+/* Cover image fills the panel width */
+.page img {
+    width: 100%;
+    display: block;
+}
+
+/* Body text of the excerpt */
+.passage {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    line-height: 1.35;
+    color: #222;
+    margin: 16px 0;
+}
+
+/* --- The three text treatments from the sample image --- */
+.u   { text-decoration: underline; }                                  /* underlined */
+.hl  { background: #ff9d00; color: #222; }      /* orange highlight */
+.red { color: #fb0000; font-weight: bold; }                           /* bold red quotes */
+
+/* Back link, centered under the passage */
+.page .back {
+    display: block;
+    text-align: center;
+    color: var(--color-pink-dark);
+}
